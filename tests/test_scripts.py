@@ -3,13 +3,12 @@ import zipfile
 from datetime import date
 from pathlib import Path
 
-import boto3
-import pytest
-from moto import mock_aws
-
 import apply_athena_views
+import boto3
 import build_artifacts
+import pytest
 import upload_sample_data
+from moto import mock_aws
 
 ROOT = Path(__file__).resolve().parents[1]
 

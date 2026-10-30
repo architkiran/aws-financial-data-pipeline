@@ -25,6 +25,7 @@ from urllib.parse import unquote_plus
 
 import boto3
 from botocore.exceptions import ClientError
+
 from finpipe.schema import missing_columns, parse_batch_date, parse_header
 
 logger = logging.getLogger()

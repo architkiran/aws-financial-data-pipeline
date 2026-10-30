@@ -6,12 +6,12 @@ from pathlib import Path
 from urllib.parse import quote_plus
 
 import boto3
+import ingest_handler
 import pytest
+import quality_gate
 from botocore.exceptions import ClientError
 from moto import mock_aws
 
-import ingest_handler
-import quality_gate
 from finpipe.generator import generate_day
 
 BUCKET = "lake-test"

@@ -7,8 +7,6 @@ from __future__ import annotations
 
 from decimal import Decimal
 
-import pandas as pd
-
 from finpipe.modeling import to_money
 
 PII_COLUMNS = {"account_number", "customer_email"}

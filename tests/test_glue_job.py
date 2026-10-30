@@ -2,9 +2,10 @@ from datetime import date
 
 import boto3
 import pytest
+import transform_job
+from botocore.exceptions import ClientError
 from moto import mock_aws
 
-import transform_job
 from finpipe.config import get_pii_salt
 from finpipe.generator import generate_day, write_day_csv
 from finpipe.ingest import ingest_file
@@ -51,5 +52,5 @@ def test_the_pii_key_can_come_from_ssm_instead_of_the_environment(bucket):
 
 
 def test_an_unreachable_secret_fails_the_run_instead_of_falling_back(bucket):
-    with pytest.raises(Exception):
+    with pytest.raises(ClientError):
         transform_job.main(["--dt", "2026-10-01", "--run_id", "r", "--lake_uri", "s3://lake-test/a", "--pii_salt_ssm_param", "/does/not/exist"])
